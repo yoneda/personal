@@ -3,5 +3,4 @@ node_modules
 *.sqlite3
 
 // parcel generate some files
-.cache
 build
