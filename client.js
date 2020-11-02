@@ -4,6 +4,8 @@ import { Router, Link } from "@reach/router";
 import request from "superagent";
 import styled, { createGlobalStyle } from "styled-components";
 import { Reset } from "styled-reset";
+import Twitter from "./Twitter";
+import Github from "./Github";
 
 const StatusGood = styled.span`
   color: green;
@@ -28,6 +30,14 @@ const HomeBox = styled.div`
   align-items: center;
 `;
 
+const IconBox = styled.span`
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: crimson;
+  }
+`;
+
 function Home() {
   return (
     <HomeBox>
@@ -35,6 +45,12 @@ function Home() {
         <h2>Kohei Yoneda</h2>
         <p>関西に住むフリーランスエンジニア。React を書くのが好きです。</p>
         <p>趣味は料理やお菓子作りなど。最近は日記アプリを作っています。</p>
+        <IconBox>
+          <Twitter />
+        </IconBox>
+        <IconBox>
+          <Github />
+        </IconBox>
       </section>
     </HomeBox>
   );
