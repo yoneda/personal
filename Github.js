@@ -4,12 +4,12 @@ function Github() {
   return (
     <svg
       className="icon icon-tabler icon-tabler-github"
-      height="24"
-      width="24"
+      height="48"
+      width="48"
       fill="none"
       stroke="currentColor"
       strokeLinecap="round"
-      strokeWidth="2"
+      strokeWidth="1.5"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >

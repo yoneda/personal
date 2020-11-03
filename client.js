@@ -33,24 +33,37 @@ const HomeBox = styled.div`
 const IconBox = styled.span`
   cursor: pointer;
   transition: 0.3s;
+  margin-left: 5px;
   &:hover {
     color: crimson;
   }
+`;
+
+const H2 = styled.h2`
+  font-family: Arial;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 2em;
 `;
 
 function Home() {
   return (
     <HomeBox>
       <section>
-        <h2>Kohei Yoneda</h2>
+        <H2>Kohei Yoneda</H2>
         <p>関西に住むフリーランスエンジニア。React を書くのが好きです。</p>
-        <p>趣味は料理やお菓子作りなど。最近は日記アプリを作っています。</p>
+        <p>
+          趣味は料理やお菓子作りなど。最近は
+          <a href="https://yoneda.fun">日記アプリ</a>
+          を作っています。
+        </p>
         <IconBox>
           <Twitter />
         </IconBox>
         <IconBox>
           <Github />
         </IconBox>
+        <p>ホーム | プロジェクト | 記事</p>
       </section>
     </HomeBox>
   );
@@ -107,8 +120,17 @@ function Nav() {
 }
 
 const GlobalStyle = createGlobalStyle`
+  
   body{
     background-color: whitesmoke;
+    font-family: 'M PLUS 1p', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+    line-height: 1.5em;
+  }
+
+  a:visited{
+    color: crimson;
   }
 `;
 
