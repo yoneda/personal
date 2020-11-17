@@ -45,6 +45,19 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Header = styled.header`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const HeaderItem = styled.div`
+  width: 50px;
+  height: 50px;
+`;
+
+/*
 function Header() {
   return (
     <header>
@@ -53,6 +66,7 @@ function Header() {
     </header>
   );
 }
+*/
 
 function Main() {
   return (
@@ -96,7 +110,12 @@ function App() {
     <div id="container">
       <Reset />
       <GlobalStyle />
-      <Header />
+      <Header>
+        <H2>Kohei Yoneda</H2>
+        <HeaderItem>
+          <Twitter />
+        </HeaderItem>
+      </Header>
       <Main />
       <Footer />
     </div>
