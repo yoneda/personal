@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import { Router, Link } from "@reach/router";
 import request from "superagent";
-import styled, { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
 import Github from "./Github";
@@ -25,7 +25,8 @@ const H2 = styled.h2`
 
 const GlobalStyle = createGlobalStyle`
   body{
-    background-color: whitesmoke;
+    background-color: ${(props) =>
+      props.theme.main === "light" ? "white" : "black"};
     font-family: 'M PLUS 1p', sans-serif;
     font-weight: 400;
     font-size: 1.2em;
@@ -56,17 +57,6 @@ const HeaderItem = styled.div`
   width: 50px;
   height: 50px;
 `;
-
-/*
-function Header() {
-  return (
-    <header>
-      <H2>Kohei Yoneda</H2>
-      <div>Toggle</div>
-    </header>
-  );
-}
-*/
 
 function Main() {
   return (
@@ -106,18 +96,25 @@ function Footer() {
 }
 
 function App() {
+  const [theme, setTheme] = useState("light");
   return (
     <div id="container">
-      <Reset />
-      <GlobalStyle />
-      <Header>
-        <H2>Kohei Yoneda</H2>
-        <HeaderItem>
-          <Twitter />
-        </HeaderItem>
-      </Header>
-      <Main />
-      <Footer />
+      <ThemeProvider theme={{ main: theme }}>
+        <Reset />
+        <GlobalStyle />
+        <Header>
+          <H2>Kohei Yoneda</H2>
+          <HeaderItem>
+            <button
+              onClick={() => setTheme(theme === "light" ? "black" : "light")}
+            >
+              o
+            </button>
+          </HeaderItem>
+        </Header>
+        <Main />
+        <Footer />
+      </ThemeProvider>
     </div>
   );
 }
