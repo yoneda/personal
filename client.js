@@ -108,7 +108,7 @@ function App() {
             <button
               onClick={() => setTheme(theme === "light" ? "black" : "light")}
             >
-              o
+              {theme === "light" ? "昼" : "夜"}
             </button>
           </HeaderItem>
         </Header>
