@@ -1,20 +1,9 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Router, Link } from "@reach/router";
-import request from "superagent";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
 import Github from "./Github";
-
-const IconBox = styled.span`
-  cursor: pointer;
-  transition: 0.3s;
-  margin-left: 5px;
-  &:hover {
-    color: crimson;
-  }
-`;
 
 const H2 = styled.h2`
   font-family: Arial;
@@ -26,7 +15,8 @@ const H2 = styled.h2`
 const GlobalStyle = createGlobalStyle`
   body{
     background-color: ${(props) =>
-      props.theme.main === "light" ? "white" : "black"};
+      props.theme.theme === "light" ? "white" : "black"};
+    color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
     font-family: 'M PLUS 1p', sans-serif;
     font-weight: 400;
     font-size: 1.2em;
@@ -53,9 +43,9 @@ const Header = styled.header`
   align-items: center;
 `;
 
-const HeaderItem = styled.div`
-  width: 50px;
-  height: 50px;
+const SwitchButton = styled.button`
+  width: 30px;
+  height: 30px;
 `;
 
 function Main() {
@@ -73,12 +63,8 @@ function Main() {
         </p>
       </section>
       <section>
-        <IconBox>
-          <Twitter />
-        </IconBox>
-        <IconBox>
-          <Github />
-        </IconBox>
+        <Twitter />
+        <Github />
       </section>
     </main>
   );
@@ -95,22 +81,21 @@ function Footer() {
   );
 }
 
-function App() {
+function Page() {
   const [theme, setTheme] = useState("light");
+  const onClick = () => {
+    setTheme(theme === "light" ? "back" : "light");
+  };
+  const label = theme === "light" ? "昼" : "夜";
   return (
     <div id="container">
-      <ThemeProvider theme={{ main: theme }}>
+      {/* ThemeProvider.theme must be an object */}
+      <ThemeProvider theme={{ theme }}>
         <Reset />
         <GlobalStyle />
         <Header>
           <H2>Kohei Yoneda</H2>
-          <HeaderItem>
-            <button
-              onClick={() => setTheme(theme === "light" ? "black" : "light")}
-            >
-              {theme === "light" ? "昼" : "夜"}
-            </button>
-          </HeaderItem>
+          <SwitchButton onClick={onClick}>{label}</SwitchButton>
         </Header>
         <Main />
         <Footer />
@@ -119,4 +104,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<Page />, document.getElementById("app"));
