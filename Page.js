@@ -104,4 +104,4 @@ function Page() {
   );
 }
 
-ReactDOM.render(<Page />, document.getElementById("app"));
+export default Page;
