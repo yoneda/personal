@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
