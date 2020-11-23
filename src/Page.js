@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Reset } from "styled-reset";
+import Switch from "react-input-switch";
 import Twitter from "./Twitter";
 import Github from "./Github";
 import Instagram from "./Instagram";
-import Switch from "react-input-switch";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -78,29 +78,34 @@ function Footer() {
   );
 }
 
-function Page() {
-  const [theme, setTheme] = useState("light");
+function Page(props) {
+  const { theme, setTheme } = props;
   return (
     <div id="container">
-      {/* ThemeProvider.theme must be an object */}
-      <ThemeProvider theme={{ theme }}>
-        <Reset />
-        <GlobalStyle />
-        <Header>
-          <H2>Kohei Yoneda</H2>
-          <Switch
-            styles={{ trackChecked: { backgroundColor: "darkorange" } }}
-            on="black"
-            off="light"
-            value={theme}
-            onChange={setTheme}
-          />
-        </Header>
-        <Main />
-        <Footer />
-      </ThemeProvider>
+      <Reset />
+      <GlobalStyle />
+      <Header>
+        <H2>Kohei Yoneda</H2>
+        <Switch
+          styles={{ trackChecked: { backgroundColor: "darkorange" } }}
+          on="black"
+          off="light"
+          value={theme}
+          onChange={setTheme}
+        />
+      </Header>
+      <Main />
+      <Footer />
     </div>
   );
 }
 
-export default Page;
+export default function () {
+  const [theme, setTheme] = useState("light");
+  return (
+    <ThemeProvider theme={{ theme }}>
+      {/* ThemeProvider.theme must be an object */}
+      <Page {...{ theme, setTheme }} />
+    </ThemeProvider>
+  );
+}
