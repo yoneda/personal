@@ -4,11 +4,22 @@ import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
 import Github from "./Github";
 
+/*
 const H2 = styled.h2`
   font-family: Arial;
   font-size: 2em;
   font-weight: 500;
   line-height: 2em;
+`;*/
+
+const H2 = styled.h2`
+  font-family: Arial;
+  font-size: 36px;
+`;
+
+const P = styled.p`
+  font-size: 18px;
+  line-height: 28px;
 `;
 
 const GlobalStyle = createGlobalStyle`
