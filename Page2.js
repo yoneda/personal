@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: ${(props) =>
+      props.theme.theme === "light" ? "white" : "#242424"};
   }
 `;
 
@@ -24,12 +26,14 @@ const Header = styled.header`
 
 const H2 = styled.h2`
   font-size: 36px;
+  color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const P = styled.p`
   font-size: 18px;
   line-height: 28px;
   letter-spacing: 1px;
+  color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const Link = styled.a`
@@ -41,7 +45,7 @@ const Link = styled.a`
 
 function Main() {
   return (
-    <main style={{width: "600px"}}>
+    <main style={{ width: "600px" }}>
       <section>
         <P>
           兵庫県に住むソフトウェアエンジニア。React と Swift
@@ -73,19 +77,27 @@ function Footer() {
   );
 }
 
-function Page(){
-  return(
+function Page() {
+  const [theme, setTheme] = useState("light");
+  const onClick = () => {
+    setTheme(theme === "light" ? "back" : "light");
+  };
+  const label = theme === "light" ? "昼" : "夜";
+  return (
     <div id="container">
-      <Reset />
-      <GlobalStyle />
-      <Header>
-        <H2>Kohei Yoneda</H2>
-        <button>toggle</button>
-      </Header>
-      <Main />
-      <Footer />
+      {/* ThemeProvider.theme must be an object */}
+      <ThemeProvider theme={{ theme }}>
+        <Reset />
+        <GlobalStyle />
+        <Header>
+          <H2>Kohei Yoneda</H2>
+          <button onClick={onClick}>{label}</button>
+        </Header>
+        <Main />
+        <Footer />
+      </ThemeProvider>
     </div>
-  )
+  );
 }
 
 export default Page;

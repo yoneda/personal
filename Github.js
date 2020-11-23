@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Svg = styled.svg`
   cursor: pointer;
+  stroke: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 function Github() {
@@ -14,7 +15,6 @@ function Github() {
       height="34"
       viewBox="0 0 24 24"
       strokeWidth="2"
-      stroke="#2c3e50"
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"

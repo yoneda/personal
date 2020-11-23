@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Svg = styled.svg`
   cursor: pointer;
+  stroke: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 function Instagram() {
