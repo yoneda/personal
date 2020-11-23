@@ -3,6 +3,7 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
 import Github from "./Github";
+import Instagram from "./Instagram";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -28,11 +29,13 @@ const H2 = styled.h2`
 const P = styled.p`
   font-size: 18px;
   line-height: 28px;
+  letter-spacing: 1px;
 `;
 
 const Link = styled.a`
   font-size: 18px;
   line-height: 28px;
+  letter-spacing: 1px;
   color: darkorange;
 `;
 
@@ -49,6 +52,11 @@ function Main() {
           2020年には<Link href="">野菜スペシャリスト</Link>
           の資格を取得。野菜の正しい知識を世の中に広める活動を行っている。
         </P>
+      </section>
+      <section>
+        <Twitter />
+        <Github />
+        <Instagram />
       </section>
     </main>
   );
