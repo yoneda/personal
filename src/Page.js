@@ -15,6 +15,9 @@ const GlobalStyle = createGlobalStyle`
     background-color: ${(props) =>
       props.theme.theme === "light" ? "white" : "#242424"};
   }
+  #container{
+    width: 600px;
+  }
 `;
 
 const Header = styled.header`
@@ -22,7 +25,6 @@ const Header = styled.header`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  width: 600px;
 `;
 
 const H2 = styled.h2`
@@ -46,7 +48,7 @@ const Link = styled.a`
 
 function Main() {
   return (
-    <main style={{ width: "600px" }}>
+    <main>
       <section>
         <P>
           兵庫県に住むソフトウェアエンジニア。React と Swift
