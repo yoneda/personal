@@ -4,6 +4,7 @@ import { Reset } from "styled-reset";
 import Twitter from "./Twitter";
 import Github from "./Github";
 import Instagram from "./Instagram";
+import Switch from "react-input-switch";
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -79,10 +80,6 @@ function Footer() {
 
 function Page() {
   const [theme, setTheme] = useState("light");
-  const onClick = () => {
-    setTheme(theme === "light" ? "back" : "light");
-  };
-  const label = theme === "light" ? "昼" : "夜";
   return (
     <div id="container">
       {/* ThemeProvider.theme must be an object */}
@@ -91,7 +88,13 @@ function Page() {
         <GlobalStyle />
         <Header>
           <H2>Kohei Yoneda</H2>
-          <button onClick={onClick}>{label}</button>
+          <Switch
+            styles={{ trackChecked: { backgroundColor: "darkorange" } }}
+            on="black"
+            off="light"
+            value={theme}
+            onChange={setTheme}
+          />
         </Header>
         <Main />
         <Footer />
