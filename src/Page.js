@@ -18,6 +18,15 @@ const GlobalStyle = createGlobalStyle`
   #container{
     width: 600px;
   }
+  header{
+    margin-bottom: 20px;
+  }
+  section{
+    margin-bottom: 10px;
+  }
+  svg{
+    margin-right: 4px;
+  }
 `;
 
 const Header = styled.header`
@@ -25,6 +34,7 @@ const Header = styled.header`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `;
 
 const H2 = styled.h2`
@@ -89,7 +99,9 @@ function Page(props) {
       <Header>
         <H2>Kohei Yoneda</H2>
         <Switch
-          styles={{ trackChecked: { backgroundColor: "darkorange" } }}
+          styles={{
+            trackChecked: { backgroundColor: "darkorange" },
+          }}
           on="black"
           off="light"
           value={theme}
