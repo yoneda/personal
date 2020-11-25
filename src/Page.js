@@ -19,13 +19,13 @@ const GlobalStyle = createGlobalStyle`
     width: 600px;
   }
   header{
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
   }
   section{
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
   svg{
-    margin-right: 4px;
+    margin-right: 0.5rem;
   }
 `;
 
@@ -34,25 +34,24 @@ const Header = styled.header`
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
 `;
 
 const H2 = styled.h2`
-  font-size: 36px;
+  font-size: 2rem;
   color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const P = styled.p`
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  letter-spacing: 0rem;
   color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const Link = styled.a`
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 1px;
+  font-size: 1.1rem;
+  line-height: 1.75rem;
+  letter-spacing: 0rem;
   color: darkorange;
 `;
 
