@@ -19,10 +19,10 @@ const GlobalStyle = createGlobalStyle`
     width: 600px;
   }
   header{
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
   section{
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
   svg{
     margin-right: 0.5rem;
@@ -38,6 +38,7 @@ const Header = styled.header`
 
 const H2 = styled.h2`
   font-size: 2rem;
+  font-family: 'Lato';
   color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
