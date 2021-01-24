@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: ${(props) =>
+    background-color: ${props =>
       props.theme.theme === "light" ? "white" : "#242424"};
   }
   #container{
@@ -38,15 +38,15 @@ const Header = styled.header`
 
 const H2 = styled.h2`
   font-size: 2rem;
-  font-family: 'Lato';
-  color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
+  font-family: "Lato";
+  color: ${props => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const P = styled.p`
   font-size: 1.1rem;
   line-height: 1.75rem;
   letter-spacing: 0rem;
-  color: ${(props) => (props.theme.theme === "light" ? "black" : "white")};
+  color: ${props => (props.theme.theme === "light" ? "black" : "white")};
 `;
 
 const Link = styled.a`
@@ -62,7 +62,8 @@ function Main() {
       <section>
         <P>
           兵庫県に住むソフトウェアエンジニア。React と Swift
-          のコードをよく書いています。最近は<Link href="">簡単日記</Link>
+          のコードをよく書いています。最近は
+          <Link href="">簡単日記</Link>
           を作っています。
         </P>
         <P>
@@ -100,7 +101,7 @@ function Page(props) {
         <H2>Kohei Yoneda</H2>
         <Switch
           styles={{
-            trackChecked: { backgroundColor: "darkorange" },
+            trackChecked: { backgroundColor: "darkorange" }
           }}
           on="black"
           off="light"
